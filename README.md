@@ -24,7 +24,7 @@ const doubleSize = (oldProps) => {
 }
 
 @transformPropsWith(doubleSize)
-class BigComponent extends SmallComponent
+class BigComponent extends SmallComponent {}
 
 ReactDOM.render(<BigComponent size={ 100 } />, node);
 // Would render <SmallComponent size={ 200 } />
