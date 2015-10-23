@@ -2,6 +2,10 @@
 
 **transformPropsWith** is a decorator for React components.
 
+[![npm](https://img.shields.io/npm/v/transform-props-with.svg)](https://www.npmjs.com/package/transform-props-with)
+[![license](https://img.shields.io/npm/l/transform-props-with.svg)]()
+[![npm](https://img.shields.io/badge/react-v0.14-brightgreen.svg)](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
+
 ### Install
 
 ```shell
