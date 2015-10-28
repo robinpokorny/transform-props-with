@@ -8,6 +8,8 @@
 
 ### Install
 
+[![NPM](https://nodei.co/npm/transform-props-with.png?compact=true)](https://www.npmjs.com/package/transform-props-with)
+
 ```shell
 $ npm install transform-props-with --save
 ```
@@ -16,23 +18,29 @@ $ npm install transform-props-with --save
 
 ```js
 import transformPropsWith from 'transform-props-with';
-import SmallComponent from './small-component'
+import BaseComponent from './base-component'
 
 const doubleSize = (oldProps) => {
   const { size, ...props } = oldProps;
-  
+
   return {
     size: size * 2,
     ...props
   };
-}
+};
 
 @transformPropsWith(doubleSize)
-class BigComponent extends SmallComponent {}
+class DecoratedComponent extends BaseComponent {}
 
-ReactDOM.render(<BigComponent size={ 100 } />, node);
-// Would render <SmallComponent size={ 200 } />
+ReactDOM.render(<DecoratedComponent size={ 100 } />, node);
+// Would render <BaseComponent size={ 200 } />
 ```
+
+### Examples
+
+* [Change a prop value](examples/double-size.js)
+* [Switch two props](examples/switch-foo-bar.js)
+* [Track click](examples/track-click.js) (decorating `onClick`)
 
 #### Note
 
