@@ -8,8 +8,6 @@
 
 ### Install
 
-[![NPM](https://nodei.co/npm/transform-props-with.png?compact=true)](https://www.npmjs.com/package/transform-props-with)
-
 ```shell
 $ npm install transform-props-with --save
 ```
