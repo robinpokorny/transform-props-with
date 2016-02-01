@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    "transform-es2015-arrow-functions",
+    "transform-es2015-spread",
+    "transform-react-jsx",
+    "transform-es2015-modules-commonjs"
+  ]
+}

@@ -5,7 +5,7 @@
   "author": "Robin Pokorny <me@robinpokorny.com> (http://robinpokorny.com)",
   "main": "./lib/index.js",
   "scripts": {
-    "compile": "babel -d lib/ src/",
+    "compile": "babel src/index.js --out-file lib/index.js",
     "prepublish": "npm run compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,11 +17,18 @@
     "react": "^0.14.0"
   },
   "devDependencies": {
-    "babel": "^5.8.0"
+    "babel-cli": "^6.4.5",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.4.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.4.5",
+    "babel-plugin-transform-es2015-spread": "^6.4.0",
+    "babel-plugin-transform-react-jsx": "^6.4.0",
+    "react-addons-test-utils": "^0.14.6"
   },
   "keywords": [
-    "npm",
-    "boilerplate"
+    "transform",
+    "props",
+    "react",
+    "decorator"
   ],
   "license": "MIT"
 }
