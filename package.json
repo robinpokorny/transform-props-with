@@ -7,7 +7,8 @@
   "scripts": {
     "compile": "babel src/index.js --out-file lib/index.js",
     "prepublish": "npm run compile",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "npm run compile",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,10 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.4.5",
     "babel-plugin-transform-es2015-spread": "^6.4.0",
     "babel-plugin-transform-react-jsx": "^6.4.0",
-    "react-addons-test-utils": "^0.14.6"
+    "jest-cli": "~0.8.2",
+    "react-addons-test-utils": "^0.14.6",
+    "react-dom": "^0.14.7",
+    "react-stateless-wrapper": "^1.0.2"
   },
   "keywords": [
     "transform",
@@ -30,5 +34,14 @@
     "react",
     "decorator"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "jest": {
+    "testDirectoryName": "test",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/fbjs"
+    ]
+  }
 }
