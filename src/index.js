@@ -1,3 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-export default (transform) => (Component) => (props) => <Component {...transform(props)}/>;
+export default (transformations = []) => {
+  const transform = Array.prototype.reduceRight.bind(
+    [].concat(transformations),
+    (props, tr) => tr(props)
+  )
+
+  return (Component) => (props) => <Component {...transform(props)}/>
+}

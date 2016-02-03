@@ -15,7 +15,7 @@ $ npm install transform-props-with --save
 ### Usage
 
 ```js
-import transformPropsWith from 'transform-props-with';
+import transformPropsWith from 'transform-props-with'
 import BaseComponent from './base-component'
 
 const doubleSize = (oldProps) => {
@@ -32,6 +32,32 @@ class DecoratedComponent extends BaseComponent {}
 
 ReactDOM.render(<DecoratedComponent size={ 100 } />, node);
 // Would render <BaseComponent size={ 200 } />
+```
+
+#### Multiple transformations
+
+Pass an array of transformations to the function and they will all be applied *right to left*.
+
+The following two examples are then equivalent.
+
+```js
+@transformPropsWith([doubleSize, addFive])
+class DecoratedComponent extends BaseComponent {}
+```
+
+```js
+@transformPropsWith(doubleSize)
+@transformPropsWith(addFive)
+class DecoratedComponent extends BaseComponent {}
+```
+
+#### Direct use without decorators
+
+If you do not like [decorators](https://github.com/wycats/javascript-decorators)
+or do not feel comfortable using them yet you can apply transformations directly.
+
+```js
+const DecoratedComponent = @transformPropsWith(doubleSize)(BaseComponent)
 ```
 
 ### Examples
