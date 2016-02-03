@@ -1,25 +1,28 @@
-import transformPropsWith from 'transform-props-with';
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import transformPropsWith from 'transform-props-with'
 import BaseComponent from './base-component'
 
 const trackClick = (oldProps) => {
-  const { onClick, trackInfo, ...props } = oldProps;
+  const { onClick, trackInfo, ...props } = oldProps
 
   if (!trackInfo) {
-    return oldProps;
+    return oldProps
   }
 
   props.onClick = (event) => {
-    sendTrackInfo(trackInfo);
+    sendTrackInfo(trackInfo)
 
     if (typeof onClick === 'function') {
-      onClick(event);
+      onClick(event)
     }
   };
 
-  return props;
+  return props
 };
 
-const DecoratedComponent = transformPropsWith(trackClick)('a');
+const DecoratedComponent = transformPropsWith(trackClick)('a')
 
 ReactDOM.render(
   <DecoratedComponent
@@ -28,7 +31,8 @@ ReactDOM.render(
     trackInfo='Vaňek_1'
   >
     Audience
-  </DecoratedComponent>
-, node);
+  </DecoratedComponent>,
+  document.getElementById('app')
+)
 // Would render <a href=…>Audience</a>
 // The click if first tracked and then this.handleClick is executed
