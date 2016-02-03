@@ -53,11 +53,12 @@ class DecoratedComponent extends BaseComponent {}
 
 #### Direct use without decorators
 
-If you do not like [decorators](https://github.com/wycats/javascript-decorators)
+If you do not like [decorators](https://github.com/wycats/javascript-decorators),
+need them (because you use stateless functional components),
 or do not feel comfortable using them yet you can apply transformations directly.
 
 ```js
-const DecoratedComponent = @transformPropsWith(doubleSize)(BaseComponent)
+const DecoratedComponent = transformPropsWith(doubleSize)(BaseComponent)
 ```
 
 ### Examples
@@ -66,7 +67,11 @@ const DecoratedComponent = @transformPropsWith(doubleSize)(BaseComponent)
 * [Switch two props](examples/switch-foo-bar.js)
 * [Track click](examples/track-click.js) (decorating `onClick`)
 
-#### Note
+#### Notes
 
-**transformPropsWith** returns a stateless functional component, these were introduced in
+* **transformPropsWith** returns a stateless functional component, these were introduced in
 React v0.14.0 ([release notes](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)).
+
+* Polyfill for
+[Array.prototype.reduceRight] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight)
+might be needed to support older browsers.
