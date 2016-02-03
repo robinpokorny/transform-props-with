@@ -44,15 +44,15 @@ Pass an array of transformations to the function and they will all be applied *r
 The following two examples are then equivalent.
 
 ```js
-const DecoratedComponent = transformPropsWith([
-  doubleSize, addFive
-])(BaseComponent)
+const DecoratedComponent =
+  transformPropsWith([doubleSize, addFive])(BaseComponent)
 ```
 
 ```js
-const DecoratedComponent = transformPropsWith(doubleSize)(
-  transformPropsWith(addFive)(BaseComponent)
-)
+const DecoratedComponent =
+  transformPropsWith(doubleSize)(
+    transformPropsWith(addFive)(BaseComponent)
+  )
 ```
 
 #### ES7 decorators
