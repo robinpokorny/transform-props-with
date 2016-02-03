@@ -8,7 +8,7 @@
     "compile": "babel src/index.js --out-file lib/index.js",
     "prepublish": "npm run compile",
     "pretest": "npm run compile",
-    "test": "jest"
+    "test": "standard && jest"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
     "jest-cli": "~0.8.2",
     "react-addons-test-utils": "^0.14.6",
     "react-dom": "^0.14.7",
-    "react-stateless-wrapper": "^1.0.2"
+    "react-stateless-wrapper": "^1.0.2",
+    "standard": "^5.4.1"
   },
   "keywords": [
     "transform",

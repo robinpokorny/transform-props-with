@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import transformPropsWith from 'transform-props-with'
-import BaseComponent from './base-component'
+
+import { sendTrackInfo } from './path/to/analytics'
 
 const trackClick = (oldProps) => {
   const { onClick, trackInfo, ...props } = oldProps
@@ -17,10 +18,10 @@ const trackClick = (oldProps) => {
     if (typeof onClick === 'function') {
       onClick(event)
     }
-  };
+  }
 
   return props
-};
+}
 
 const DecoratedComponent = transformPropsWith(trackClick)('a')
 
@@ -35,4 +36,4 @@ ReactDOM.render(
   document.getElementById('app')
 )
 // Would render <a href=…>Audience</a>
-// The click if first tracked and then this.handleClick is executed
+// The click is first tracked and then this.handleClick is executed

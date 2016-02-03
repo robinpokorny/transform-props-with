@@ -5,6 +5,8 @@
 [![npm](https://img.shields.io/npm/v/transform-props-with.svg)](https://www.npmjs.com/package/transform-props-with)
 [![license](https://img.shields.io/npm/l/transform-props-with.svg)](https://github.com/robinpokorny/transform-props-with/blob/master/LICENSE)
 [![npm](https://img.shields.io/badge/react-v0.14-brightgreen.svg)](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-lightgrey.svg)](http://standardjs.com/)
+
 
 ### Install
 
@@ -16,6 +18,7 @@ $ npm install transform-props-with --save
 
 ```js
 import transformPropsWith from 'transform-props-with'
+
 import BaseComponent from './base-component'
 
 const doubleSize = (oldProps) => {
@@ -27,8 +30,7 @@ const doubleSize = (oldProps) => {
   };
 };
 
-@transformPropsWith(doubleSize)
-class DecoratedComponent extends BaseComponent {}
+const DecoratedComponent = transformPropsWith(doubleSize)(BaseComponent)
 
 ReactDOM.render(<DecoratedComponent size={ 100 } />, node);
 // Would render <BaseComponent size={ 200 } />
@@ -41,24 +43,25 @@ Pass an array of transformations to the function and they will all be applied *r
 The following two examples are then equivalent.
 
 ```js
-@transformPropsWith([doubleSize, addFive])
-class DecoratedComponent extends BaseComponent {}
+const DecoratedComponent = transformPropsWith([
+  doubleSize, addFive
+])(BaseComponent)
 ```
+
+```js
+const DecoratedComponent = transformPropsWith(doubleSize)(
+  transformPropsWith(addFive)(BaseComponent)
+)
+```
+
+#### ES7 decorators
+
+If you like [decorators](https://github.com/wycats/javascript-decorators),
+you can use to apply transformations.
 
 ```js
 @transformPropsWith(doubleSize)
-@transformPropsWith(addFive)
 class DecoratedComponent extends BaseComponent {}
-```
-
-#### Direct use without decorators
-
-If you do not like [decorators](https://github.com/wycats/javascript-decorators),
-need them (because you use stateless functional components),
-or do not feel comfortable using them yet you can apply transformations directly.
-
-```js
-const DecoratedComponent = transformPropsWith(doubleSize)(BaseComponent)
 ```
 
 ### Examples
