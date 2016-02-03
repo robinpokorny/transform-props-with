@@ -1,11 +1,11 @@
 {
   "name": "transform-props-with",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A props transforming decorator for React components",
   "author": "Robin Pokorny <me@robinpokorny.com> (http://robinpokorny.com)",
   "main": "./lib/index.js",
   "scripts": {
-    "compile": "babel src/index.js --out-file lib/index.js",
+    "compile": "babel src --out-dir lib",
     "prepublish": "npm run compile",
     "pretest": "npm run compile",
     "test": "standard && jest"
