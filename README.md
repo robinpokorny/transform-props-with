@@ -18,7 +18,7 @@ $ npm install transform-props-with --save
 ### Usage
 
 ```js
-import transformPropsWith from 'transform-props-with'
+import tx from 'transform-props-with'
 
 import BaseComponent from './base-component'
 
@@ -31,7 +31,7 @@ const doubleSize = (oldProps) => {
   };
 };
 
-const DecoratedComponent = transformPropsWith(doubleSize)(BaseComponent)
+const DecoratedComponent = tx(doubleSize)(BaseComponent)
 
 ReactDOM.render(<DecoratedComponent size={ 100 } />, node);
 // Would render <BaseComponent size={ 200 } />
@@ -63,13 +63,13 @@ The following two examples are then equivalent.
 
 ```js
 const DecoratedComponent =
-  transformPropsWith([doubleSize, addFive])(BaseComponent)
+  tx([doubleSize, addFive])(BaseComponent)
 ```
 
 ```js
 const DecoratedComponent =
-  transformPropsWith(doubleSize)(
-    transformPropsWith(addFive)(BaseComponent)
+  tx(doubleSize)(
+    tx(addFive)(BaseComponent)
   )
 ```
 
@@ -86,7 +86,7 @@ If you like [decorators](https://github.com/wycats/javascript-decorators),
 you can use to apply transformations.
 
 ```js
-@transformPropsWith(doubleSize)
+@tx(doubleSize)
 class DecoratedComponent extends BaseComponent {}
 ```
 

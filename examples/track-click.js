@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import transformPropsWith from 'transform-props-with'
+import tx from 'transform-props-with'
 
 import { sendTrackInfo } from './path/to/analytics'
 
@@ -23,7 +23,7 @@ const trackClick = (oldProps) => {
   return props
 }
 
-const DecoratedComponent = transformPropsWith(trackClick)('a')
+const DecoratedComponent = tx(trackClick)('a')
 
 ReactDOM.render(
   <DecoratedComponent
