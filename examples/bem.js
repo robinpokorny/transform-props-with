@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import cx from 'classnames'
 
-import transformPropsWith from 'transform-props-with'
+import tx from 'transform-props-with'
 
 const addElementStyles = (oldProps) => {
   const { modifier, name, ...props } = oldProps
@@ -18,11 +18,11 @@ const addElementStyles = (oldProps) => {
 const addBodyElementStyles = (props) => Object.assign({}, props, { name: 'body' })
 const addTitleElementStyles = (props) => Object.assign({}, props, { name: 'title' })
 
-const HeaderBody = transformPropsWith([
+const HeaderBody = tx([
   addBodyElementStyles,
   addElementStyles
 ])('div')
-const HeaderTitle = transformPropsWith([
+const HeaderTitle = tx([
   addTitleElementStyles,
   addElementStyles
 ])('h1')

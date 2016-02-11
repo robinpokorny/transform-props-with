@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import transformPropsWith from 'transform-props-with'
+import tx from 'transform-props-with'
 
 import BaseComponent from './base-component'
 
@@ -14,7 +14,7 @@ const doubleSize = (oldProps) => {
   }
 }
 
-const DecoratedComponent = transformPropsWith(doubleSize)(BaseComponent)
+const DecoratedComponent = tx(doubleSize)(BaseComponent)
 
 ReactDOM.render(
   <DecoratedComponent size={ 100 } />,

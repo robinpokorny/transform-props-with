@@ -8,7 +8,7 @@ var ReactDOM = require('react-dom')
 var TestUtils = require('react-addons-test-utils')
 var wrap = require('react-stateless-wrapper').wrap
 
-var transformPropsWith = require('../').default
+var tx = require('../').default
 
 var BaseComponent = function (props) {
   return React.createElement('div', null, props.size) // eslint-disable-line
@@ -25,7 +25,7 @@ var addFive = function (oldProps) {
 describe('transformPropsWith', function () {
   it('works', function () {
     var DecoratedComponent = wrap(
-      transformPropsWith(doubleSize)(BaseComponent)
+      tx(doubleSize)(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
       React.createElement(DecoratedComponent, { size: 10 })
@@ -37,7 +37,7 @@ describe('transformPropsWith', function () {
 
   it('does not modify original component with no transformations', function () {
     var DecoratedComponent = wrap(
-      transformPropsWith()(BaseComponent)
+      tx()(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
       React.createElement(DecoratedComponent, { size: 10 })
@@ -49,7 +49,7 @@ describe('transformPropsWith', function () {
 
   it('accepts array of transformations', function () {
     var DecoratedComponent = wrap(
-      transformPropsWith([doubleSize, addFive])(BaseComponent)
+      tx([doubleSize, addFive])(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
       React.createElement(DecoratedComponent, { size: 10 })
@@ -61,7 +61,7 @@ describe('transformPropsWith', function () {
 
   it('merges props with object', function () {
     var DecoratedComponent = wrap(
-      transformPropsWith({ size: 30 })(BaseComponent)
+      tx({ size: 30 })(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
       React.createElement(DecoratedComponent, { size: 10 })
@@ -73,7 +73,7 @@ describe('transformPropsWith', function () {
 
   it('accepts mixed array of transformations and objects', function () {
     var DecoratedComponent = wrap(
-      transformPropsWith([doubleSize, { size: 10 }])(BaseComponent)
+      tx([doubleSize, { size: 10 }])(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
       React.createElement(DecoratedComponent, {})

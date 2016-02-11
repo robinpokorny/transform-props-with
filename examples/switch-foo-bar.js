@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import transformPropsWith from 'transform-props-with'
+import tx from 'transform-props-with'
 
 import BaseComponent from './base-component'
 
@@ -15,7 +15,7 @@ const switchFooBar = (oldProps) => {
   }
 }
 
-const DecoratedComponent = transformPropsWith(switchFooBar)(BaseComponent)
+const DecoratedComponent = tx(switchFooBar)(BaseComponent)
 
 ReactDOM.render(
   <DecoratedComponent foo='The Garden Party' bar={ 1963 } />,
