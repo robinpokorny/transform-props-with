@@ -1,6 +1,7 @@
 /* eslint-env jest */
 
 jest.dontMock('../')
+jest.dontMock('object-assign')
 
 var React = require('react')
 var ReactDOM = require('react-dom')
@@ -27,7 +28,7 @@ describe('transformPropsWith', function () {
       transformPropsWith(doubleSize)(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, {size: 10})
+      React.createElement(DecoratedComponent, { size: 10 })
     )
     var node = ReactDOM.findDOMNode(component)
 
@@ -39,7 +40,7 @@ describe('transformPropsWith', function () {
       transformPropsWith()(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, {size: 10})
+      React.createElement(DecoratedComponent, { size: 10 })
     )
     var node = ReactDOM.findDOMNode(component)
 
@@ -51,10 +52,34 @@ describe('transformPropsWith', function () {
       transformPropsWith([doubleSize, addFive])(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, {size: 10})
+      React.createElement(DecoratedComponent, { size: 10 })
     )
     var node = ReactDOM.findDOMNode(component)
 
     expect(node.textContent).toEqual('30')
+  })
+
+  it('merges props with object', function () {
+    var DecoratedComponent = wrap(
+      transformPropsWith({ size: 30 })(BaseComponent)
+    )
+    var component = TestUtils.renderIntoDocument(
+      React.createElement(DecoratedComponent, { size: 10 })
+    )
+    var node = ReactDOM.findDOMNode(component)
+
+    expect(node.textContent).toEqual('30')
+  })
+
+  it('accepts mixed array of transformations and objects', function () {
+    var DecoratedComponent = wrap(
+      transformPropsWith([doubleSize, { size: 10 }])(BaseComponent)
+    )
+    var component = TestUtils.renderIntoDocument(
+      React.createElement(DecoratedComponent, {})
+    )
+    var node = ReactDOM.findDOMNode(component)
+
+    expect(node.textContent).toEqual('20')
   })
 })
