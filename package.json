@@ -15,6 +15,7 @@
     "url": "https://github.com/robinpokorny/transform-props-with"
   },
   "dependencies": {
+    "object-assign": "^4.0.1",
     "react": "^0.14.0"
   },
   "devDependencies": {

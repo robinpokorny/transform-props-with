@@ -37,6 +37,24 @@ ReactDOM.render(<DecoratedComponent size={ 100 } />, node);
 // Would render <BaseComponent size={ 200 } />
 ```
 
+#### Merge objects
+
+Pass an object to automatically merge it with provided props.
+
+```js
+const DecoratedComponent = transformPropsWith({ stars: 10 })(BaseComponent)
+
+ReactDOM.render(<DecoratedComponent size={ 100 } />, node);
+// Would render <BaseComponent size={ 100 } stars={ 10 } />
+
+```
+
+Note: this is *not* a deep merge. It is equal to this transformation:
+
+```js
+const setSizeTo200 = (oldProps) => objectAssign({}, oldProps, { stars: 10 })
+```
+
 #### Multiple transformations
 
 Pass an array of transformations to the function and they will all be applied *right to left*.
@@ -53,6 +71,13 @@ const DecoratedComponent =
   transformPropsWith(doubleSize)(
     transformPropsWith(addFive)(BaseComponent)
   )
+```
+
+Of course, transformations and object merges can be mixed.
+
+```js
+const DecoratedComponent =
+  transformPropsWith([doubleSize, { stars: 10 }, addFive])(BaseComponent)
 ```
 
 #### ES7 decorators
