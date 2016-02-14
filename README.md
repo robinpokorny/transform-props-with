@@ -3,9 +3,9 @@
 **transform-props-with** is a decorator for React components.
 
 [![npm](https://img.shields.io/npm/v/transform-props-with.svg?style=flat-square)](https://www.npmjs.com/package/transform-props-with)
-[![Build Status](https://semaphoreci.com/api/v1/projects/952af448-0e60-472d-9e34-4d330e25da5f/684163/shields_badge.svg?style=flat-square)](https://semaphoreci.com/robinpokorny/transform-props-with)
+[![Build Status](https://img.shields.io/badge/build-passed-brightgreen.svg?style=flat-square)](https://semaphoreci.com/robinpokorny/transform-props-with)
 [![license](https://img.shields.io/npm/l/transform-props-with.svg?style=flat-square)](https://github.com/robinpokorny/transform-props-with/blob/master/LICENSE)
-[![npm](https://img.shields.io/badge/react->%3D%200.14-brightgreen.svg?style=flat-square)](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
+[![react](https://img.shields.io/badge/react->%3D%200.14-brightgreen.svg?style=flat-square)](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-lightgrey.svg?style=flat-square)](http://standardjs.com/)
 
 
