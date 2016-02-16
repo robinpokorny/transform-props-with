@@ -1,6 +1,6 @@
-# transform-props-with
+# Transform Props With
 
-**transform-props-with** is a decorator for React components.
+*Transform Props With* is a decorator for React components.
 
 [![npm](https://img.shields.io/npm/v/transform-props-with.svg?style=flat-square)](https://www.npmjs.com/package/transform-props-with)
 [![Build Status](https://img.shields.io/badge/build-passed-brightgreen.svg?style=flat-square)](https://semaphoreci.com/robinpokorny/transform-props-with)
@@ -10,6 +10,8 @@
 
 
 ### Install
+
+*Transform Props With* requires **React 0.14 or later**.
 
 ```shell
 $ npm install transform-props-with --save
@@ -99,7 +101,7 @@ class DecoratedComponent extends BaseComponent {}
 
 #### Notes
 
-* **transform-props-with** returns a stateless functional component, these were introduced in
+* *Transform Props With* returns a stateless functional component, these were introduced in
 React v0.14.0 ([release notes](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)).
 
 * Polyfill for
