@@ -82,4 +82,12 @@ describe('transformPropsWith', function () {
 
     expect(node.textContent).toEqual('20')
   })
+
+  it('throws an error on unsupported input', function () {
+    expect(function () { tx('Pludek') }).toThrow()
+    expect(function () { tx(1963) }).toThrow()
+    expect(function () { tx([doubleSize, []]) }).toThrow()
+    expect(function () { tx(new Symbol()) }).toThrow()
+    expect(function () { tx(Promise.resolve()) }).toThrow()
+  })
 })
