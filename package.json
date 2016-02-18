@@ -1,6 +1,6 @@
 {
   "name": "transform-props-with",
-  "version": "0.3.0",
+  "version": "1.0.0-rc.0",
   "description": "A props transforming decorator for React components",
   "author": "Robin Pokorny <me@robinpokorny.com> (http://robinpokorny.com)",
   "main": "./lib/index.js",
