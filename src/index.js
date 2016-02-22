@@ -1,7 +1,9 @@
 import React from 'react'
 import objectAssign from 'object-assign'
 
-const objectToMerge = (tr) => {
+const ensureArray = (a) => Array.isArray(a) ? a : [a]
+
+const expandShorthands = (tr) => {
   if (typeof tr === 'function') {
     return tr
   }
@@ -14,9 +16,7 @@ const objectToMerge = (tr) => {
 }
 
 export default (transformations = []) => {
-  const transformsList = []
-    .concat(transformations)
-    .map(objectToMerge)
+  const transformsList = ensureArray(transformations).map(expandShorthands)
 
   const transform = Array.prototype.reduceRight.bind(
     transformsList,
