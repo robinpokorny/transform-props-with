@@ -35,8 +35,8 @@ const doubleSize = (oldProps) => {
 
 const DecoratedComponent = tx(doubleSize)(BaseComponent)
 
-ReactDOM.render(<DecoratedComponent size={ 100 } />, node);
-// Would render <BaseComponent size={ 200 } />
+ReactDOM.render(<DecoratedComponent size={100} />, node);
+// Would render <BaseComponent size={200} />
 ```
 
 #### Merge objects
@@ -46,8 +46,8 @@ Pass an object to automatically merge it with provided props.
 ```js
 const DecoratedComponent = tx({ stars: 10 })(BaseComponent)
 
-ReactDOM.render(<DecoratedComponent size={ 100 } />, node);
-// Would render <BaseComponent size={ 100 } stars={ 10 } />
+ReactDOM.render(<DecoratedComponent size={100} />, node);
+// Would render <BaseComponent size={100} stars={ 10 } />
 
 ```
 
@@ -59,20 +59,15 @@ const setSizeTo200 = (oldProps) => objectAssign({}, oldProps, { stars: 10 })
 
 #### Multiple transformations
 
-Pass an array of transformations to the function and they will all be applied *right to left*.
+Pass an array of transformations to the function and they will all be combined
+to a single transformation *right to left*.
 
-The following two examples are then equivalent.
+In the following example `addFive` would be applied first and `doubleSize`
+will be called with props returned by it.
 
 ```js
 const DecoratedComponent =
   tx([doubleSize, addFive])(BaseComponent)
-```
-
-```js
-const DecoratedComponent =
-  tx(doubleSize)(
-    tx(addFive)(BaseComponent)
-  )
 ```
 
 Of course, transformations and object merges can be mixed.
@@ -95,9 +90,9 @@ class DecoratedComponent extends BaseComponent {}
 ### Examples
 
 * [Change a prop value](examples/double-size.js)
-* [Build BEM components](examples/bem.js)
 * [Switch two props](examples/switch-foo-bar.js)
 * [Track click](examples/track-click.js) (decorating `onClick`)
+* [Build BEM components](https://github.com/agudulin/dumb-bem#usage) using [dumb-bem](https://www.npmjs.com/package/dumb-bem)
 
 #### Notes
 

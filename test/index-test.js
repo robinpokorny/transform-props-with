@@ -88,7 +88,7 @@ describe('transformPropsWith', function () {
     expect(function () { tx(1963) }).toThrow()
     expect(function () { tx(null) }).toThrow()
     expect(function () { tx([doubleSize, []]) }).toThrow()
-    expect(function () { tx(new Symbol()) }).toThrow()
+    expect(function () { tx(Symbol()) }).toThrow()
     expect(function () { tx(Promise.resolve()) }).toThrow()
   })
 })

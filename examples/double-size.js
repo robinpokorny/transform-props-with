@@ -17,7 +17,7 @@ const doubleSize = (oldProps) => {
 const DecoratedComponent = tx(doubleSize)(BaseComponent)
 
 ReactDOM.render(
-  <DecoratedComponent size={ 100 } />,
+  <DecoratedComponent size={100} />,
   document.getElementById('app')
 )
-// Would render <BaseComponent size={ 200 } />
+// Would render <BaseComponent size={200} />
