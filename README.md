@@ -90,6 +90,7 @@ class DecoratedComponent extends BaseComponent {}
 ### Examples
 
 * [Change a prop value](examples/double-size.js)
+* [Wrap general component](examples/wrap-general-component.js)
 * [Switch two props](examples/switch-foo-bar.js)
 * [Track click](examples/track-click.js) (decorating `onClick`)
 * [Build BEM components](https://github.com/agudulin/dumb-bem#usage) using [dumb-bem](https://www.npmjs.com/package/dumb-bem)
