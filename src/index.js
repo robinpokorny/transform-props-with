@@ -1,14 +1,14 @@
 import React from 'react'
 import objectAssign from 'object-assign'
-
-const ensureArray = (a) => Array.isArray(a) ? a : [a]
+import castArray from 'lodash/castArray'
+import isPlainObject from 'lodash/isPlainObject'
 
 const expandShorthands = (tr) => {
   if (typeof tr === 'function') {
     return tr
   }
 
-  if (typeof tr === 'object' && tr.constructor === Object) {
+  if (isPlainObject(tr)) {
     return (oldProps) => objectAssign({}, oldProps, tr)
   }
 
@@ -16,7 +16,7 @@ const expandShorthands = (tr) => {
 }
 
 export default (transformations = []) => {
-  const transformsList = ensureArray(transformations).map(expandShorthands)
+  const transformsList = castArray(transformations).map(expandShorthands)
 
   const transform = Array.prototype.reduceRight.bind(
     transformsList,
