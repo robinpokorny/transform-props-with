@@ -1,6 +1,6 @@
 # Transform Props With
 
-*Transform Props With* is a decorator for React components.
+*Transform Props With* is a higher-order React component creator for transforming props.
 
 [![npm](https://img.shields.io/npm/v/transform-props-with.svg?style=flat-square)](https://www.npmjs.com/package/transform-props-with)
 [![Build Status](https://img.shields.io/badge/build-passed-brightgreen.svg?style=flat-square)](https://semaphoreci.com/robinpokorny/transform-props-with)
