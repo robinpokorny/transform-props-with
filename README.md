@@ -7,6 +7,7 @@
 [![license](https://img.shields.io/npm/l/transform-props-with.svg?style=flat-square)](https://github.com/robinpokorny/transform-props-with/blob/master/LICENSE)
 [![react](https://img.shields.io/badge/react->%3D%200.14-brightgreen.svg?style=flat-square)](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-lightgrey.svg?style=flat-square)](http://standardjs.com/)
+[![Developed at Wimdu](https://img.shields.io/badge/developed%20at-Wimdu-orange.svg?style=flat-square)](http://tech.wimdu.com/)
 
 
 ### Install
