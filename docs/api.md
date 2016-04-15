@@ -1,68 +1,75 @@
+## Modules
+
+* [transform-props-with](#module_transform-props-with)
+    * [~default([transformations])](#module_transform-props-with..default) ⇒ <code>[HigherOrderComponent](#HigherOrderComponent)</code>
+
+## Functions
+
+* [expandShorthands(tr)](#expandShorthands) ⇒ <code>[SimpleTransformation](#SimpleTransformation)</code>
+
+## Typedefs
+
+* [Props](#Props) : <code>object</code>
+* [SimpleTransformation](#SimpleTransformation) ⇒ <code>[Props](#Props)</code>
+* [HigherOrderComponent](#HigherOrderComponent) ⇒ <code>React.Component</code>
+* [Transformation](#Transformation) : <code>[SimpleTransformation](#SimpleTransformation)</code> &#124; <code>object</code>
+
 <a name="module_transform-props-with"></a>
 
 ## transform-props-with
+<a name="module_transform-props-with..default"></a>
 
-* [transform-props-with](#module_transform-props-with)
-    * [module.exports([transformations])](#exp_module_transform-props-with--module.exports) ⇒ <code>HigherOrderComponent</code> ⏏
-        * [~expandShorthands(tr)](#module_transform-props-with--module.exports..expandShorthands) ⇒ <code>SimpleTransformation</code>
-        * [~Props](#module_transform-props-with--module.exports..Props) : <code>object</code>
-        * [~SimpleTransformation](#module_transform-props-with--module.exports..SimpleTransformation) ⇒ <code>Props</code>
-        * [~HigherOrderComponent](#module_transform-props-with--module.exports..HigherOrderComponent) ⇒ <code>React.Component</code>
-        * [~Transformation](#module_transform-props-with--module.exports..Transformation) : <code>SimpleTransformation</code> &#124; <code>object</code>
-
-<a name="exp_module_transform-props-with--module.exports"></a>
-
-### module.exports([transformations]) ⇒ <code>HigherOrderComponent</code> ⏏
+### transform-props-with~default([transformations]) ⇒ <code>[HigherOrderComponent](#HigherOrderComponent)</code>
 Returns the sum of a and b
 
-**Kind**: Exported function
+**Kind**: inner method of <code>[transform-props-with](#module_transform-props-with)</code>
 
 | Param | Type | Default |
 | --- | --- | --- |
-| [transformations] | <code>Transformation</code> &#124; <code>Array.&lt;Transformation&gt;</code> | <code>[]</code> |
+| [transformations] | <code>[Transformation](#Transformation)</code> &#124; <code>[Array.&lt;Transformation&gt;](#Transformation)</code> | <code>[]</code> |
 
-<a name="module_transform-props-with--module.exports..expandShorthands"></a>
+<a name="expandShorthands"></a>
 
-#### module.exports~expandShorthands(tr) ⇒ <code>SimpleTransformation</code>
+## expandShorthands(tr) ⇒ <code>[SimpleTransformation](#SimpleTransformation)</code>
 Returns the sum of a and b
 
-**Kind**: inner method of <code>[module.exports](#exp_module_transform-props-with--module.exports)</code>
+**Kind**: global function
 
 | Param | Type |
 | --- | --- |
-| tr | <code>Transformation</code> |
+| tr | <code>[Transformation](#Transformation)</code> |
 
-<a name="module_transform-props-with--module.exports..Props"></a>
+<a name="Props"></a>
 
-#### module.exports~Props : <code>object</code>
+## Props : <code>object</code>
 A number, or a string containing a number.
 
-**Kind**: inner typedef of <code>[module.exports](#exp_module_transform-props-with--module.exports)</code>
-<a name="module_transform-props-with--module.exports..SimpleTransformation"></a>
+**Kind**: global typedef
+<a name="SimpleTransformation"></a>
 
-#### module.exports~SimpleTransformation ⇒ <code>Props</code>
+## SimpleTransformation ⇒ <code>[Props](#Props)</code>
 This callback is displayed as part of the Requester class.
 
-**Kind**: inner typedef of <code>[module.exports](#exp_module_transform-props-with--module.exports)</code>
+**Kind**: global typedef
 
 | Param | Type |
 | --- | --- |
-| oldProps | <code>Props</code> |
+| oldProps | <code>[Props](#Props)</code> |
 
-<a name="module_transform-props-with--module.exports..HigherOrderComponent"></a>
+<a name="HigherOrderComponent"></a>
 
-#### module.exports~HigherOrderComponent ⇒ <code>React.Component</code>
+## HigherOrderComponent ⇒ <code>React.Component</code>
 Higher-order React Component.
 
-**Kind**: inner typedef of <code>[module.exports](#exp_module_transform-props-with--module.exports)</code>
+**Kind**: global typedef
 
 | Param | Type |
 | --- | --- |
 | BaseComponent | <code>React.Component</code> |
 
-<a name="module_transform-props-with--module.exports..Transformation"></a>
+<a name="Transformation"></a>
 
-#### module.exports~Transformation : <code>SimpleTransformation</code> &#124; <code>object</code>
+## Transformation : <code>[SimpleTransformation](#SimpleTransformation)</code> &#124; <code>object</code>
 A number, or a string containing a number.
 
-**Kind**: inner typedef of <code>[module.exports](#exp_module_transform-props-with--module.exports)</code>
+**Kind**: global typedef

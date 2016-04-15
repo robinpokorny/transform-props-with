@@ -8,6 +8,7 @@ import isPlainObject from 'lodash/isPlainObject'
 /**
  * A number, or a string containing a number.
  * @typedef {object} Props
+ * @global
  */
 
 /**
@@ -15,6 +16,7 @@ import isPlainObject from 'lodash/isPlainObject'
  * @callback SimpleTransformation
  * @param {Props} oldProps
  * @return {Props}
+ * @global
  */
 
 /**
@@ -22,17 +24,20 @@ import isPlainObject from 'lodash/isPlainObject'
  * @callback HigherOrderComponent
  * @param {React.Component} BaseComponent
  * @return {React.Component}
+ * @global
  */
 
 /**
  * A number, or a string containing a number.
  * @typedef {(SimpleTransformation|object)} Transformation
+ * @global
  */
 
 /**
  * Returns the sum of a and b
  * @param {Transformation} tr
  * @returns {SimpleTransformation}
+ * @alias expandShorthands
  */
 const expandShorthands = (tr) => {
   if (typeof tr === 'function') {
@@ -48,7 +53,7 @@ const expandShorthands = (tr) => {
 
 /**
  * Returns the sum of a and b
- * @function
+ * @function default
  * @param {Transformation|Transformation[]} [transformations = []]
  * @returns {HigherOrderComponent}
  */
