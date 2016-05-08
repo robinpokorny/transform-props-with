@@ -23,5 +23,5 @@ export default (transformations = []) => {
     (props, tr) => tr(props)
   )
 
-  return (Component) => (props) => <Component {...transform(props)}/>
+  return (Component) => (props) => <Component {...transform(props)} />
 }
