@@ -10,6 +10,13 @@
     "pretest": "npm run compile",
     "test": "standard && jest"
   },
+  "keywords": [
+    "tx",
+    "transform",
+    "props",
+    "react",
+    "decorator"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/robinpokorny/transform-props-with"
@@ -32,13 +39,6 @@
   "peerDependencies": {
     "react": ">=0.14.0"
   },
-  "keywords": [
-    "tx",
-    "transform",
-    "props",
-    "react",
-    "decorator"
-  ],
   "license": "MIT",
   "babel": {
     "presets": [
