@@ -49,7 +49,7 @@ describe('transformPropsWith', function () {
 
   it('accepts array of transformations', function () {
     var DecoratedComponent = wrap(
-      tx([doubleSize, addFive])(BaseComponent)
+      tx([ addFive, doubleSize ])(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
       React.createElement(DecoratedComponent, { size: 10 })
@@ -73,7 +73,7 @@ describe('transformPropsWith', function () {
 
   it('accepts mixed array of transformations and objects', function () {
     var DecoratedComponent = wrap(
-      tx([doubleSize, { size: 10 }])(BaseComponent)
+      tx([ { size: 10 }, doubleSize ])(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
       React.createElement(DecoratedComponent, {})

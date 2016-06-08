@@ -18,7 +18,7 @@ const expandShorthands = (tr) => {
 export default (transformations = []) => {
   const transformsList = castArray(transformations).map(expandShorthands)
 
-  const transform = Array.prototype.reduceRight.bind(
+  const transform = Array.prototype.reduce.bind(
     transformsList,
     (props, tr) => tr(props)
   )

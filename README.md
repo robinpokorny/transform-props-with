@@ -61,21 +61,21 @@ const setStarsTo10 = (oldProps) => objectAssign({}, oldProps, { stars: 10 })
 #### Multiple transformations
 
 Pass an array of transformations to the function and they will all be combined
-to a single transformation *right to left*.
+to a single transformation *left to right*.
 
 In the following example `addFive` would be applied first and `doubleSize`
 will be called with props returned by it.
 
 ```js
 const DecoratedComponent =
-  tx([doubleSize, addFive])(BaseComponent)
+  tx([ addFive, doubleSize ])(BaseComponent)
 ```
 
 Of course, transformations and object merges can be mixed.
 
 ```js
 const DecoratedComponent =
-  tx([doubleSize, { stars: 10 }, addFive])(BaseComponent)
+  tx([ addFive, { stars: 10 }, doubleSize ])(BaseComponent)
 ```
 
 #### ES7 decorators
@@ -102,5 +102,5 @@ class DecoratedComponent extends BaseComponent {}
 React v0.14.0 ([release notes](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)).
 
 * Polyfill for
-[Array.prototype.reduceRight] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight)
+[Array.prototype.reduce] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 might be needed to support older browsers.
