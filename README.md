@@ -40,6 +40,8 @@ ReactDOM.render(<DecoratedComponent size={100} />, node);
 // Would render <BaseComponent size={200} />
 ```
 
+See the full [API documentation](docs/api.md) for details.
+
 #### Merge objects
 
 Pass an object to automatically merge it with provided props.
