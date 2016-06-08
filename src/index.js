@@ -6,13 +6,14 @@ import castArray from 'lodash/castArray'
 import isPlainObject from 'lodash/isPlainObject'
 
 /**
- * A number, or a string containing a number.
+ * A plain object. Should not be mutated.
  * @typedef {object} Props
  * @global
  */
 
 /**
- * This callback is displayed as part of the Requester class.
+ * Middleware function for changing props.
+ * A function which takes Props as input and returns new Props.
  * @callback SimpleTransformation
  * @param {Props} oldProps
  * @return {Props}
@@ -21,6 +22,7 @@ import isPlainObject from 'lodash/isPlainObject'
 
 /**
  * Higher-order React Component.
+ * A function that enhances passed component.
  * @callback HigherOrderComponent
  * @param {React.Component} BaseComponent
  * @return {React.Component}
@@ -28,7 +30,8 @@ import isPlainObject from 'lodash/isPlainObject'
  */
 
 /**
- * A number, or a string containing a number.
+ * When a plane object is passed it will be used to
+ * extend props (with override).
  * @typedef {(SimpleTransformation|object)} Transformation
  * @global
  */
@@ -38,6 +41,7 @@ import isPlainObject from 'lodash/isPlainObject'
  * @param {Transformation} tr
  * @returns {SimpleTransformation}
  * @alias expandShorthands
+ * @private
  */
 const expandShorthands = (tr) => {
   if (typeof tr === 'function') {
@@ -52,7 +56,9 @@ const expandShorthands = (tr) => {
 }
 
 /**
- * Returns the sum of a and b
+ * Higher-order component generator.
+ * Will change props with passed transformaton(s).
+ * Array of transformatons is evaluated left to right.
  * @function default
  * @param {Transformation|Transformation[]} [transformations = []]
  * @returns {HigherOrderComponent}
