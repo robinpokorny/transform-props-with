@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ## 2.0.0 - 2016-xx-yy
 ### Reverse list resolving
 - List of transformations is now resolved left to right
+- Add JSDoc documentation
 - Added (this) change log
 
 ## 1.1.0 - 2016-04-11
