@@ -57,7 +57,7 @@ ReactDOM.render(<DecoratedComponent size={100} />, node);
 Note: this is *not* a deep merge. It is equal to this transformation:
 
 ```js
-const setStarsTo10 = (oldProps) => objectAssign({}, oldProps, { stars: 10 })
+const setStarsTo10 = (oldProps) => Object.assign({}, oldProps, { stars: 10 })
 ```
 
 #### Multiple transformations

@@ -1,7 +1,6 @@
 /** @module transform-props-with */
 
 import React from 'react'
-import objectAssign from 'object-assign'
 import castArray from 'lodash/castArray'
 import isPlainObject from 'lodash/isPlainObject'
 
@@ -49,7 +48,7 @@ const expandShorthands = (tr) => {
   }
 
   if (isPlainObject(tr)) {
-    return (oldProps) => objectAssign({}, oldProps, tr)
+    return (oldProps) => Object.assign({}, oldProps, tr)
   }
 
   throw new Error('Transformation must be a function or a plain object.')
