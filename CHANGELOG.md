@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.0.1 - 2016-06-24
+### Use Object.assign polyfill
+- Use babel to include the Object.assign polyfill
+
 ## 2.0.0 - 2016-06-08
 ### Reverse list resolving
 - List of transformations is now resolved left to right
