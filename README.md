@@ -1,6 +1,6 @@
 # Transform Props With
 
-*Transform Props With* is a higher-order React component creator for transforming props.
+*Transform Props With* is a functional approach to React component reuse.
 
 [![npm](https://img.shields.io/npm/v/transform-props-with.svg?style=flat-square)](https://www.npmjs.com/package/transform-props-with)
 [![Build Status](https://img.shields.io/badge/build-passed-brightgreen.svg?style=flat-square)](https://semaphoreci.com/robinpokorny/transform-props-with)
@@ -8,14 +8,15 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-lightgrey.svg?style=flat-square)](http://standardjs.com/)
 [![Developed at Wimdu](https://img.shields.io/badge/developed%20at-Wimdu-orange.svg?style=flat-square)](http://tech.wimdu.com/)
 
+> Compose small testable functions to modify props for comonents.
 
-### Install
+## Install
 
 ```shell
 $ npm install transform-props-with --save
 ```
 
-### Usage
+## Usage
 
 ```js
 import tx from 'transform-props-with'
@@ -39,7 +40,7 @@ ReactDOM.render(<DecoratedComponent size={100} />, node);
 
 See the full [API documentation](docs/api.md) for details.
 
-#### Merge objects
+### Merge objects
 
 Pass an object to automatically merge it with provided props.
 
@@ -57,7 +58,7 @@ Note: this is *not* a deep merge. It is equal to this transformation:
 const setStarsTo10 = (oldProps) => Object.assign({}, oldProps, { stars: 10 })
 ```
 
-#### Multiple transformations
+### Multiple transformations
 
 Pass an array of transformations to the function and they will all be combined
 to a single transformation *left to right*.
@@ -77,7 +78,7 @@ const DecoratedComponent =
   tx([ addFive, { stars: 10 }, doubleSize ])(BaseComponent)
 ```
 
-### Examples
+## Examples
 
 * [Change a prop value](examples/double-size.js)
 * [Wrap general component](examples/wrap-general-component.js)
@@ -85,7 +86,7 @@ const DecoratedComponent =
 * [Track click](examples/track-click.js) (decorating `onClick`)
 * [Build BEM components](https://github.com/agudulin/dumb-bem#usage) using [dumb-bem](https://www.npmjs.com/package/dumb-bem)
 
-#### Notes
+### Notes
 
 * *Transform Props With* returns a stateless functional component, these were introduced in
 React v0.14.0 ([release notes](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)).
