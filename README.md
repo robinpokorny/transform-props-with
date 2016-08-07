@@ -5,14 +5,11 @@
 [![npm](https://img.shields.io/npm/v/transform-props-with.svg?style=flat-square)](https://www.npmjs.com/package/transform-props-with)
 [![Build Status](https://img.shields.io/badge/build-passed-brightgreen.svg?style=flat-square)](https://semaphoreci.com/robinpokorny/transform-props-with)
 [![license](https://img.shields.io/npm/l/transform-props-with.svg?style=flat-square)](https://github.com/robinpokorny/transform-props-with/blob/master/LICENSE)
-[![react](https://img.shields.io/badge/react->%3D%200.14-brightgreen.svg?style=flat-square)](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-lightgrey.svg?style=flat-square)](http://standardjs.com/)
 [![Developed at Wimdu](https://img.shields.io/badge/developed%20at-Wimdu-orange.svg?style=flat-square)](http://tech.wimdu.com/)
 
 
 ### Install
-
-*Transform Props With* requires **React 0.14 or later**.
 
 ```shell
 $ npm install transform-props-with --save
@@ -78,16 +75,6 @@ Of course, transformations and object merges can be mixed.
 ```js
 const DecoratedComponent =
   tx([ addFive, { stars: 10 }, doubleSize ])(BaseComponent)
-```
-
-#### ES7 decorators
-
-If you like [decorators](https://github.com/wycats/javascript-decorators),
-you can use to apply transformations.
-
-```js
-@tx(doubleSize)
-class DecoratedComponent extends BaseComponent {}
 ```
 
 ### Examples
