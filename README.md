@@ -8,7 +8,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-lightgrey.svg?style=flat-square)](http://standardjs.com/)
 [![Developed at Wimdu](https://img.shields.io/badge/developed%20at-Wimdu-orange.svg?style=flat-square)](http://tech.wimdu.com/)
 
-> Compose small testable functions to modify props for comonents.
+> Compose small testable functions to modify props for components.
 
 ## Install
 
