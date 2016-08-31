@@ -1,6 +1,7 @@
 /* eslint-env jest */
 
 jest.dontMock('../')
+jest.dontMock('../lib/transform-ref')
 jest.dontMock('object-assign')
 
 var React = require('react')
@@ -12,10 +13,6 @@ var tx = require('../').default
 
 var BaseComponent = function (props) {
   return React.createElement('div', null, props.size) // eslint-disable-line
-}
-
-var BaseComponentWithRef = function (props) {
-  return React.createElement('div', null, props.__ref) // eslint-disable-line
 }
 
 var doubleSize = function (oldProps) {
@@ -85,18 +82,6 @@ describe('transformPropsWith', function () {
     var node = ReactDOM.findDOMNode(component)
 
     expect(node.textContent).toEqual('20')
-  })
-
-  it('accepts __ref prop and remove it', function () {
-    var DecoratedComponent = wrap(
-      tx()(BaseComponentWithRef)
-    )
-    var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, { __ref: function () {} })
-    )
-    var node = ReactDOM.findDOMNode(component)
-
-    expect(node.textContent).toEqual('')
   })
 
   it('throws an error on unsupported input', function () {

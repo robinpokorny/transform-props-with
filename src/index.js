@@ -4,6 +4,8 @@ import React from 'react'
 import castArray from 'lodash/castArray'
 import isPlainObject from 'lodash/isPlainObject'
 
+import transformRef from './transform-ref'
+
 /**
  * A plain object. Should not be mutated.
  * @typedef {object} Props
@@ -55,14 +57,6 @@ const expandShorthands = (tr) => {
 }
 
 /**
- * Transforms __ref to ref
- * @param {object} props
- * @returns {object}
- * @private
- */
-const transformRef = ({ __ref, ...props }) => __ref ? { ref: __ref, ...props } : props
-
-/**
  * A list of default transformations
  */
 const defaultTransformations = [transformRef]
@@ -76,9 +70,8 @@ const defaultTransformations = [transformRef]
  * @returns {HigherOrderComponent}
  */
 export default (transformations = []) => {
-  const transformsList = defaultTransformations.concat(
-    castArray(transformations)
-  ).map(expandShorthands)
+  const userTransformations = castArray(transformations).map(expandShorthands)
+  const transformsList = defaultTransformations.concat(userTransformations)
 
   const transform = Array.prototype.reduce.bind(
     transformsList,
