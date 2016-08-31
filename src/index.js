@@ -55,6 +55,19 @@ const expandShorthands = (tr) => {
 }
 
 /**
+ * Transforms __ref to ref
+ * @param {object} props
+ * @returns {object}
+ * @private
+ */
+const transformRef = ({ __ref, ...props }) => ({ ref: __ref, ...props })
+
+/**
+ * A list of default transformations
+ */
+const defaultTransformations = [transformRef]
+
+/**
  * Higher-order component generator.
  * Will change props with passed transformaton(s).
  * Array of transformatons is evaluated left to right.
@@ -63,7 +76,9 @@ const expandShorthands = (tr) => {
  * @returns {HigherOrderComponent}
  */
 export default (transformations = []) => {
-  const transformsList = castArray(transformations).map(expandShorthands)
+  const transformsList = defaultTransformations.concat(
+    castArray(transformations)
+  ).map(expandShorthands)
 
   const transform = Array.prototype.reduce.bind(
     transformsList,
