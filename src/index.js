@@ -60,7 +60,13 @@ const expandShorthands = (tr) => {
  * @returns {object}
  * @private
  */
-const transformRef = ({ __ref, ...props }) => ({ ref: __ref, ...props })
+const transformRef = ({ __ref, ...props }) => {
+  if (__ref) {
+    return { ref: __ref, ...props }
+  }
+
+  return props
+}
 
 /**
  * A list of default transformations
