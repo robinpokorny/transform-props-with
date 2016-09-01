@@ -58,6 +58,7 @@ const expandShorthands = (tr) => {
 
 /**
  * A list of default transformations
+ * @private
  */
 const defaultTransformations = [ transformRef ]
 

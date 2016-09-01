@@ -1,9 +1,5 @@
 /* eslint-env jest */
 
-jest.dontMock('../')
-jest.dontMock('../lib/transform-ref')
-jest.dontMock('object-assign')
-
 var React = require('react')
 var ReactDOM = require('react-dom')
 var TestUtils = require('react-addons-test-utils')
