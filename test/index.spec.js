@@ -10,11 +10,11 @@ import tx from '../'
 const BaseComponent = (props) =>
   React.createElement('div', null, props.size) // eslint-disable-line
 
-const doubleSize = (oldProps) =>
-  ({ size: oldProps.size * 2 })
+const doubleSize = ({ size }) =>
+  ({ size: size * 2 })
 
-const addFive = (oldProps) =>
-  ({ size: oldProps.size + 5 })
+const addFive = ({ size }) =>
+  ({ size: size + 5 })
 
 describe('transformPropsWith', () => {
   it('works', () => {
