@@ -32,9 +32,9 @@ const doubleSize = (oldProps) => {
   };
 };
 
-const DecoratedComponent = tx(doubleSize)(BaseComponent)
+const EnhancedComponent = tx(doubleSize)(BaseComponent)
 
-ReactDOM.render(<DecoratedComponent size={100} />, node);
+ReactDOM.render(<EnhancedComponent size={100} />, node);
 // Would render <BaseComponent size={200} />
 ```
 
@@ -45,9 +45,9 @@ See the full [API documentation](docs/api.md) for details.
 Pass an object to automatically merge it with provided props.
 
 ```js
-const DecoratedComponent = tx({ stars: 10 })(BaseComponent)
+const EnhancedComponent = tx({ stars: 10 })(BaseComponent)
 
-ReactDOM.render(<DecoratedComponent size={100} />, node);
+ReactDOM.render(<EnhancedComponent size={100} />, node);
 // Would render <BaseComponent size={100} stars={ 10 } />
 
 ```
@@ -67,16 +67,20 @@ In the following example `addFive` would be applied first and `doubleSize`
 will be called with props returned by it.
 
 ```js
-const DecoratedComponent =
+const EnhancedComponent =
   tx([ addFive, doubleSize ])(BaseComponent)
 ```
 
 Of course, transformations and object merges can be mixed.
 
 ```js
-const DecoratedComponent =
+const EnhancedComponent =
   tx([ addFive, { stars: 10 }, doubleSize ])(BaseComponent)
 ```
+
+### Refs to Components
+
+React enables to get references to the DOM elements using `ref` props, cf. [documentation](https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute). When passed to an enhanced component this would point to the *wrapper*. The library will rename `__ref` to `ref` so developer can access the DOM element of the inner component.
 
 ## Examples
 

@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.1.0 - 2016-09-01
+### Enable ref
+- When passed `__ref` will be renamed to `ref`. This enables to get reference to the DOM element, cf. https://facebook.github.io/react/docs/more-about-refs.html (#11)
+- Update tests to Jest 15
+
 ## 2.0.1 - 2016-06-24
 ### Use Object.assign polyfill
 - Use babel to include the Object.assign polyfill

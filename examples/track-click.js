@@ -22,16 +22,16 @@ const trackClick = (oldProps) => {
   return props
 }
 
-const DecoratedComponent = tx(trackClick)('a')
+const EnhancedComponent = tx(trackClick)('a')
 
 ReactDOM.render(
-  <DecoratedComponent
+  <EnhancedComponent
     href='https://en.wikipedia.org/wiki/Van%C4%9Bk_plays'
     onClick={this.handleClick}
     trackInfo='Vaňek_1'
   >
     Audience
-  </DecoratedComponent>,
+  </EnhancedComponent>,
   document.getElementById('app')
 )
 // Would render <a href=…>Audience</a>

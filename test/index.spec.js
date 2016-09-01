@@ -21,11 +21,11 @@ var addFive = function (oldProps) {
 
 describe('transformPropsWith', function () {
   it('works', function () {
-    var DecoratedComponent = wrap(
+    var EnhancedComponent = wrap(
       tx(doubleSize)(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, { size: 10 })
+      React.createElement(EnhancedComponent, { size: 10 })
     )
     var node = ReactDOM.findDOMNode(component)
 
@@ -33,11 +33,11 @@ describe('transformPropsWith', function () {
   })
 
   it('does not modify original component with no transformations', function () {
-    var DecoratedComponent = wrap(
+    var EnhancedComponent = wrap(
       tx()(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, { size: 10 })
+      React.createElement(EnhancedComponent, { size: 10 })
     )
     var node = ReactDOM.findDOMNode(component)
 
@@ -45,11 +45,11 @@ describe('transformPropsWith', function () {
   })
 
   it('accepts array of transformations', function () {
-    var DecoratedComponent = wrap(
+    var EnhancedComponent = wrap(
       tx([ addFive, doubleSize ])(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, { size: 10 })
+      React.createElement(EnhancedComponent, { size: 10 })
     )
     var node = ReactDOM.findDOMNode(component)
 
@@ -57,11 +57,11 @@ describe('transformPropsWith', function () {
   })
 
   it('merges props with object', function () {
-    var DecoratedComponent = wrap(
+    var EnhancedComponent = wrap(
       tx({ size: 30 })(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, { size: 10 })
+      React.createElement(EnhancedComponent, { size: 10 })
     )
     var node = ReactDOM.findDOMNode(component)
 
@@ -69,11 +69,11 @@ describe('transformPropsWith', function () {
   })
 
   it('accepts mixed array of transformations and objects', function () {
-    var DecoratedComponent = wrap(
+    var EnhancedComponent = wrap(
       tx([ { size: 10 }, doubleSize ])(BaseComponent)
     )
     var component = TestUtils.renderIntoDocument(
-      React.createElement(DecoratedComponent, {})
+      React.createElement(EnhancedComponent, {})
     )
     var node = ReactDOM.findDOMNode(component)
 

@@ -14,10 +14,10 @@ const switchFooBar = (oldProps) => {
   }
 }
 
-const DecoratedComponent = tx(switchFooBar)(BaseComponent)
+const EnhancedComponent = tx(switchFooBar)(BaseComponent)
 
 ReactDOM.render(
-  <DecoratedComponent foo='The Garden Party' bar={1963} />,
+  <EnhancedComponent foo='The Garden Party' bar={1963} />,
   document.getElementById('app')
 )
 // Would render <BaseComponent foo={1963} bar='The Garden Party' />

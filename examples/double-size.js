@@ -13,10 +13,10 @@ const doubleSize = (oldProps) => {
   }
 }
 
-const DecoratedComponent = tx(doubleSize)(BaseComponent)
+const EnhancedComponent = tx(doubleSize)(BaseComponent)
 
 ReactDOM.render(
-  <DecoratedComponent size={100} />,
+  <EnhancedComponent size={100} />,
   document.getElementById('app')
 )
 // Would render <BaseComponent size={200} />
