@@ -1,91 +1,88 @@
 /* eslint-env jest */
 
-var React = require('react')
-var ReactDOM = require('react-dom')
-var TestUtils = require('react-addons-test-utils')
-var wrap = require('react-stateless-wrapper').wrap
+import React from 'react'
+import ReactDOM from 'react-dom'
+import TestUtils from 'react-addons-test-utils'
+import { wrap } from 'react-stateless-wrapper'
 
-var tx = require('../').default
+import tx from '../'
 
-var BaseComponent = function (props) {
-  return React.createElement('div', null, props.size) // eslint-disable-line
-}
+const BaseComponent = (props) =>
+  React.createElement('div', null, props.size) // eslint-disable-line
 
-var doubleSize = function (oldProps) {
-  return { size: oldProps.size * 2 }
-}
+const doubleSize = ({ size }) =>
+  ({ size: size * 2 })
 
-var addFive = function (oldProps) {
-  return { size: oldProps.size + 5 }
-}
+const addFive = ({ size }) =>
+  ({ size: size + 5 })
 
-describe('transformPropsWith', function () {
-  it('works', function () {
-    var EnhancedComponent = wrap(
+describe('transformPropsWith', () => {
+  it('works', () => {
+    const EnhancedComponent = wrap(
       tx(doubleSize)(BaseComponent)
     )
-    var component = TestUtils.renderIntoDocument(
+    const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, { size: 10 })
     )
-    var node = ReactDOM.findDOMNode(component)
+    const node = ReactDOM.findDOMNode(component)
 
     expect(node.textContent).toEqual('20')
   })
 
-  it('does not modify original component with no transformations', function () {
-    var EnhancedComponent = wrap(
+  it('does not modify original component with no transformations', () => {
+    const EnhancedComponent = wrap(
       tx()(BaseComponent)
     )
-    var component = TestUtils.renderIntoDocument(
+    const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, { size: 10 })
     )
-    var node = ReactDOM.findDOMNode(component)
+    const node = ReactDOM.findDOMNode(component)
 
     expect(node.textContent).toEqual('10')
   })
 
-  it('accepts array of transformations', function () {
-    var EnhancedComponent = wrap(
+  it('accepts array of transformations', () => {
+    const EnhancedComponent = wrap(
       tx([ addFive, doubleSize ])(BaseComponent)
     )
-    var component = TestUtils.renderIntoDocument(
+    const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, { size: 10 })
     )
-    var node = ReactDOM.findDOMNode(component)
+    const node = ReactDOM.findDOMNode(component)
 
     expect(node.textContent).toEqual('30')
   })
 
-  it('merges props with object', function () {
-    var EnhancedComponent = wrap(
+  it('merges props with object', () => {
+    const EnhancedComponent = wrap(
       tx({ size: 30 })(BaseComponent)
     )
-    var component = TestUtils.renderIntoDocument(
+    const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, { size: 10 })
     )
-    var node = ReactDOM.findDOMNode(component)
+    const node = ReactDOM.findDOMNode(component)
 
     expect(node.textContent).toEqual('30')
   })
 
-  it('accepts mixed array of transformations and objects', function () {
-    var EnhancedComponent = wrap(
+  it('accepts mixed array of transformations and objects', () => {
+    const EnhancedComponent = wrap(
       tx([ { size: 10 }, doubleSize ])(BaseComponent)
     )
-    var component = TestUtils.renderIntoDocument(
+    const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, {})
     )
-    var node = ReactDOM.findDOMNode(component)
+    const node = ReactDOM.findDOMNode(component)
 
     expect(node.textContent).toEqual('20')
   })
 
-  it('throws an error on unsupported input', function () {
-    expect(function () { tx('Pludek') }).toThrow()
-    expect(function () { tx(1963) }).toThrow()
-    expect(function () { tx(null) }).toThrow()
-    expect(function () { tx([doubleSize, []]) }).toThrow()
-    expect(function () { tx(Symbol()) }).toThrow()
-    expect(function () { tx(Promise.resolve()) }).toThrow()
+  it('throws an error on unsupported input', () => {
+    expect(() => { tx('Pludek') }).toThrow()
+    expect(() => { tx(1963) }).toThrow()
+    expect(() => { tx(null) }).toThrow()
+    expect(() => { tx([doubleSize, []]) }).toThrow()
+    expect(() => { tx(Symbol()) }).toThrow()
+    expect(() => { tx(Promise.resolve()) }).toThrow()
   })
 })
