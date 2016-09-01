@@ -59,7 +59,7 @@ const expandShorthands = (tr) => {
 /**
  * A list of default transformations
  */
-const defaultTransformations = [transformRef]
+const defaultTransformations = [ transformRef ]
 
 /**
  * Higher-order component generator.

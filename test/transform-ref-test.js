@@ -10,14 +10,19 @@ describe('tranformRef', function () {
     expect(newProps.ref).toEqual(1)
   })
 
-  it('does\'t provide fake ref', function () {
-    const newProps = transformRef({ size: 2 })
-    expect(newProps.ref).toBe(undefined)
+  it('does not changes props when __ref is missing', function () {
+    const oldProps = { size: 2 }
+    const newProps = transformRef(oldProps)
+    expect(newProps).toBe(oldProps)
   })
 
-  it('doesn\'t throw an exception when no arguments', function () {
-    expect(function () {
-      transformRef()
-    }).not.toThrow()
+  it('overides ref when it is also present', function () {
+    const oldProps = { ref: 2, __ref: 1 }
+    const newProps = transformRef(oldProps)
+    expect(newProps.ref).toBe(1)
+  })
+
+  it('does not throw an exception when no arguments', function () {
+    expect(transformRef).not.toThrow()
   })
 })

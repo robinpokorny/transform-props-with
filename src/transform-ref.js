@@ -4,7 +4,10 @@
  * @returns {object}
  * @private
  */
-export default ({ __ref, ...props } = {}) =>
-  __ref
-    ? { ref: __ref, ...props }
-    : props
+export default (oldProps = {}) => {
+  const { __ref, ...props } = oldProps
+
+  if (!__ref) return oldProps
+
+  return ({ ...props, ref: __ref })
+}
