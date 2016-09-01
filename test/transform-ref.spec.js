@@ -1,7 +1,5 @@
 /* eslint-env jest */
 
-jest.dontMock('../lib/transform-ref')
-
 var transformRef = require('../lib/transform-ref').default
 
 describe('tranformRef', function () {
