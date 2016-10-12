@@ -16,6 +16,12 @@
 $ npm install transform-props-with --save
 ```
 
+or with [Yarn](https://github.com/yarnpkg/yarn)
+
+```shell
+$ yarn add transform-props-with
+```
+
 ## Usage
 
 ```js
