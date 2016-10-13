@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ## UNRELEASED - 2016-xx-xx
 ### CHANGE describe
 - Update tests to new syntax
+- Support for [Yarn](https://github.com/yarnpkg/yarn)
 
 ## 2.1.0 - 2016-09-01
 ### Enable ref
