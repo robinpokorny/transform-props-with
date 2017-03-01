@@ -9,7 +9,7 @@
 [![Managed by Yarn](https://img.shields.io/badge/managed%20by-Yarn-2C8EBB.svg?style=flat-square)](https://yarnpkg.com/)
 [![Developed at Wimdu](https://img.shields.io/badge/developed%20at-Wimdu-FCAF16.svg?style=flat-square)](http://tech.wimdu.com/)
 
-> Compose small testable functions to modify props for components.
+> **Compose small testable functions to modify props for components.**
 
 ## Install
 
@@ -49,7 +49,7 @@ See the full [API documentation](docs/api.md) for details.
 
 ### Merge objects
 
-Pass an object to automatically merge it with provided props.
+Pass an object to merge it with provided props automatically.
 
 ```js
 const EnhancedComponent = tx({ stars: 10 })(BaseComponent)
@@ -67,10 +67,10 @@ const setStarsTo10 = (oldProps) => Object.assign({}, oldProps, { stars: 10 })
 
 ### Multiple transformations
 
-Pass an array of transformations to the function and they will all be combined
+Pass an array of transformations to the function, and they will all be combined
 to a single transformation *left to right*.
 
-In the following example `addFive` would be applied first and `doubleSize`
+In the following example, `addFive` would be applied first, and `doubleSize`
 will be called with props returned by it.
 
 ```js
@@ -87,7 +87,7 @@ const EnhancedComponent =
 
 ### Refs to Components
 
-React enables to get references to the DOM elements using `ref` props, cf. [documentation](https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute). When passed to an enhanced component this would point to the *wrapper*. The library will rename `__ref` to `ref` so developer can access the DOM element of the inner component.
+React enables to get references to the DOM elements using `ref` props, cf. [documentation](https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute). When passed to an enhanced component this would point to the *wrapper*. The library will rename `__ref` to `ref` so the developer can access the DOM element of the inner component.
 
 ## Examples
 
@@ -99,7 +99,7 @@ React enables to get references to the DOM elements using `ref` props, cf. [docu
 
 ### Notes
 
-* *Transform Props With* returns a stateless functional component, these were introduced in
+* *Transform Props With* returns a stateless functional component; these were introduced in
 React v0.14.0 ([release notes](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html)).
 
 * Polyfill for
