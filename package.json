@@ -44,15 +44,5 @@
   "peerDependencies": {
     "react": ">=0.14.0"
   },
-  "license": "MIT",
-  "babel": {
-    "plugins": [
-      "transform-object-assign",
-      "transform-object-rest-spread"
-    ],
-    "presets": [
-      "react",
-      "es2015"
-    ]
-  }
+  "license": "MIT"
 }
