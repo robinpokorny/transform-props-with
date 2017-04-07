@@ -2,10 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## UNRELEASED - 2016-xx-xx
-### CHANGE describe
+## 2.2.0 - 2017-04-07
+### React native and tests
 - Update tests to new syntax
 - Support for [Yarn](https://github.com/yarnpkg/yarn)
+- Support react-native
 
 ## 2.1.0 - 2016-09-01
 ### Enable ref
