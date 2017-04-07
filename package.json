@@ -1,6 +1,6 @@
 {
   "name": "transform-props-with",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Higher-order component for transforming props",
   "author": "Robin Pokorny <me@robinpokorny.com> (http://robinpokorny.com)",
   "main": "./lib/index.js",
