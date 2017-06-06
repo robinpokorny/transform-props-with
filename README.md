@@ -31,17 +31,17 @@ import tx from 'transform-props-with'
 import BaseComponent from './base-component'
 
 const doubleSize = (oldProps) => {
-  const { size, ...props } = oldProps;
+  const { size, ...props } = oldProps
 
   return {
     size: size * 2,
     ...props
-  };
-};
+  }
+}
 
 const EnhancedComponent = tx(doubleSize)(BaseComponent)
 
-ReactDOM.render(<EnhancedComponent size={100} />, node);
+ReactDOM.render(<EnhancedComponent size={100} />, node)
 // Would render <BaseComponent size={200} />
 ```
 
@@ -54,7 +54,7 @@ Pass an object to merge it with provided props automatically.
 ```js
 const EnhancedComponent = tx({ stars: 10 })(BaseComponent)
 
-ReactDOM.render(<EnhancedComponent size={100} />, node);
+ReactDOM.render(<EnhancedComponent size={100} />, node)
 // Would render <BaseComponent size={100} stars={ 10 } />
 
 ```
