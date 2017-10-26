@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "transform-object-assign",
+    "transform-object-rest-spread"
+  ],
+  "presets": [
+    "react",
+    "es2015"
+  ]
+}
