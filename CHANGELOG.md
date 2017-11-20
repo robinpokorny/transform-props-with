@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## x.x.x - UNRELEASED
+- Remove standard, use prettier
+
 ## 2.2.0 - 2017-04-07
 ### React native and tests
 - Update tests to new syntax
