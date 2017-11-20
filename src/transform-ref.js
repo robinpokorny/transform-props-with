@@ -9,5 +9,5 @@ export default (oldProps = {}) => {
 
   if (!__ref) return oldProps
 
-  return ({ ...props, ref: __ref })
+  return { ...props, ref: __ref }
 }

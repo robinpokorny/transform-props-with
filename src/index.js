@@ -44,13 +44,13 @@ import transformRef from './transform-ref'
  * @alias expandShorthands
  * @private
  */
-const expandShorthands = (tr) => {
+const expandShorthands = tr => {
   if (typeof tr === 'function') {
     return tr
   }
 
   if (isPlainObject(tr)) {
-    return (oldProps) => Object.assign({}, oldProps, tr)
+    return oldProps => Object.assign({}, oldProps, tr)
   }
 
   throw new Error('Transformation must be a function or a plain object.')
@@ -60,7 +60,7 @@ const expandShorthands = (tr) => {
  * A list of default transformations
  * @private
  */
-const defaultTransformations = [ transformRef ]
+const defaultTransformations = [transformRef]
 
 /**
  * Higher-order component generator.
@@ -74,10 +74,9 @@ export default (transformations = []) => {
   const userTransformations = castArray(transformations).map(expandShorthands)
   const transformsList = defaultTransformations.concat(userTransformations)
 
-  const transform = Array.prototype.reduce.bind(
-    transformsList,
-    (props, tr) => tr(props)
+  const transform = Array.prototype.reduce.bind(transformsList, (props, tr) =>
+    tr(props)
   )
 
-  return (Component) => (props) => <Component {...transform(props)} />
+  return Component => props => <Component {...transform(props)} />
 }
