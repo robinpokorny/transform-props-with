@@ -7,20 +7,15 @@ import { wrap } from 'react-stateless-wrapper'
 
 import tx from '../'
 
-const BaseComponent = (props) =>
-  React.createElement('div', null, props.size) // eslint-disable-line
+const BaseComponent = props => React.createElement('div', null, props.size) // eslint-disable-line
 
-const doubleSize = ({ size }) =>
-  ({ size: size * 2 })
+const doubleSize = ({ size }) => ({ size: size * 2 })
 
-const addFive = ({ size }) =>
-  ({ size: size + 5 })
+const addFive = ({ size }) => ({ size: size + 5 })
 
 describe('transformPropsWith', () => {
   it('works', () => {
-    const EnhancedComponent = wrap(
-      tx(doubleSize)(BaseComponent)
-    )
+    const EnhancedComponent = wrap(tx(doubleSize)(BaseComponent))
     const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, { size: 10 })
     )
@@ -30,9 +25,7 @@ describe('transformPropsWith', () => {
   })
 
   it('does not modify original component with no transformations', () => {
-    const EnhancedComponent = wrap(
-      tx()(BaseComponent)
-    )
+    const EnhancedComponent = wrap(tx()(BaseComponent))
     const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, { size: 10 })
     )
@@ -42,9 +35,7 @@ describe('transformPropsWith', () => {
   })
 
   it('accepts array of transformations', () => {
-    const EnhancedComponent = wrap(
-      tx([ addFive, doubleSize ])(BaseComponent)
-    )
+    const EnhancedComponent = wrap(tx([addFive, doubleSize])(BaseComponent))
     const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, { size: 10 })
     )
@@ -54,9 +45,7 @@ describe('transformPropsWith', () => {
   })
 
   it('merges props with object', () => {
-    const EnhancedComponent = wrap(
-      tx({ size: 30 })(BaseComponent)
-    )
+    const EnhancedComponent = wrap(tx({ size: 30 })(BaseComponent))
     const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, { size: 10 })
     )
@@ -67,7 +56,7 @@ describe('transformPropsWith', () => {
 
   it('accepts mixed array of transformations and objects', () => {
     const EnhancedComponent = wrap(
-      tx([ { size: 10 }, doubleSize ])(BaseComponent)
+      tx([{ size: 10 }, doubleSize])(BaseComponent)
     )
     const component = TestUtils.renderIntoDocument(
       React.createElement(EnhancedComponent, {})
@@ -78,11 +67,23 @@ describe('transformPropsWith', () => {
   })
 
   it('throws an error on unsupported input', () => {
-    expect(() => { tx('Pludek') }).toThrow()
-    expect(() => { tx(1963) }).toThrow()
-    expect(() => { tx(null) }).toThrow()
-    expect(() => { tx([doubleSize, []]) }).toThrow()
-    expect(() => { tx(Symbol()) }).toThrow()
-    expect(() => { tx(Promise.resolve()) }).toThrow()
+    expect(() => {
+      tx('Pludek')
+    }).toThrow()
+    expect(() => {
+      tx(1963)
+    }).toThrow()
+    expect(() => {
+      tx(null)
+    }).toThrow()
+    expect(() => {
+      tx([doubleSize, []])
+    }).toThrow()
+    expect(() => {
+      tx(Symbol())
+    }).toThrow()
+    expect(() => {
+      tx(Promise.resolve())
+    }).toThrow()
   })
 })

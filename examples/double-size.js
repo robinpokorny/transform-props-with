@@ -4,7 +4,7 @@ import tx from 'transform-props-with'
 
 import BaseComponent from './base-component'
 
-const doubleSize = (oldProps) => {
+const doubleSize = oldProps => {
   const { size, ...props } = oldProps
 
   return {

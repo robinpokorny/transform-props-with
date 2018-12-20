@@ -6,18 +6,13 @@
   "main": "./lib/index.js",
   "scripts": {
     "compile": "babel src --out-dir lib",
-    "docs": "jsdoc2md --module-index-format grouped --global-index-format grouped src/*.js > docs/api.md",
+    "docs":
+      "jsdoc2md --module-index-format grouped --global-index-format grouped src/*.js > docs/api.md",
     "prepublish": "yarn run compile",
     "pretest": "yarn run compile",
     "test": "standard && jest"
   },
-  "keywords": [
-    "tx",
-    "transform",
-    "props",
-    "react",
-    "decorator"
-  ],
+  "keywords": ["tx", "transform", "props", "react", "decorator"],
   "repository": {
     "type": "git",
     "url": "https://github.com/robinpokorny/transform-props-with"
@@ -38,8 +33,7 @@
     "react": "^15.0.2",
     "react-addons-test-utils": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-stateless-wrapper": "^1.0.5",
-    "standard": "^8.0.0"
+    "react-stateless-wrapper": "^1.0.5"
   },
   "peerDependencies": {
     "react": ">=0.14.0"
