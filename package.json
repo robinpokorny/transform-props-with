@@ -8,9 +8,9 @@
     "compile": "babel src --out-dir lib",
     "docs":
       "jsdoc2md --module-index-format grouped --global-index-format grouped src/*.js > docs/api.md",
-    "prepublish": "npm run compile",
-    "pretest": "npm run compile",
-    "test": "jest"
+    "prepublish": "yarn run compile",
+    "pretest": "yarn run compile",
+    "test": "standard && jest"
   },
   "keywords": ["tx", "transform", "props", "react", "decorator"],
   "repository": {
